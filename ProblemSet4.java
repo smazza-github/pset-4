@@ -27,8 +27,8 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        ps.sum();
-        // ps.reverse();
+        // ps.sum();
+        ps.reverse();
         // ps.digits();
         // ps.average();
         // ps.prime();
@@ -85,6 +85,26 @@ public class ProblemSet4 {
 
     public void reverse() {
 
+      int inputInteger;
+
+        do {
+            System.out.print("Positive Integer: ");
+            inputInteger = in.nextInt();
+
+        } while (inputInteger < 1);
+
+        String result = Long.toString(inputInteger);
+        System.out.print("\n");
+
+        for (int integer = result.length(); integer > 0; integer--) {
+
+            if (integer==1) {
+                System.out.printf("%s.\n\n", result.substring(integer-1, integer));
+
+            } else {
+                System.out.printf("%s, ", result.substring(integer-1, integer));
+            }
+        }
     }
 
     /*
