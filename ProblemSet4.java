@@ -27,9 +27,9 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        // ps.sum();
+        ps.sum();
         ps.reverse();
-        // ps.digits();
+        ps.digits();
         // ps.average();
         // ps.prime();
         // ps.fibonacci();
@@ -86,6 +86,7 @@ public class ProblemSet4 {
     public void reverse() {
 
       int inputInteger;
+      System.out.print("\n");
 
         do {
             System.out.print("Positive Integer: ");
@@ -99,7 +100,7 @@ public class ProblemSet4 {
         for (int integer = result.length(); integer > 0; integer--) {
 
             if (integer==1) {
-                System.out.printf("%s.\n\n", result.substring(integer-1, integer));
+                System.out.printf("%s.\n", result.substring(integer-1, integer));
 
             } else {
                 System.out.printf("%s, ", result.substring(integer-1, integer));
@@ -116,6 +117,34 @@ public class ProblemSet4 {
 
     public void digits() {
 
+      int inputInteger = 0;
+      long number = 0;
+      long sum = 0;
+
+        System.out.print("\n");
+
+        do {
+            System.out.print("Positive integer: ");
+            inputInteger = in.nextInt();
+
+        } while (inputInteger <= 0);
+
+        while (inputInteger > 0) {
+
+            number = inputInteger % 10;
+
+            if (number % 2 != 0) {
+
+                sum += number;
+                inputInteger /= 10;
+
+            } else {
+
+                inputInteger /= 10;
+            }
+        }
+
+        System.out.println("\n" + sum + ".");
     }
 
     /*
