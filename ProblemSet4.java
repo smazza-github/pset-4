@@ -27,10 +27,10 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        ps.sum();
-        ps.reverse();
-        ps.digits();
-        // ps.average();
+        // ps.sum();
+        // ps.reverse();
+        // ps.digits();
+        ps.average();
         // ps.prime();
         // ps.fibonacci();
         // ps.factors();
@@ -157,6 +157,27 @@ public class ProblemSet4 {
 
     public void average() {
 
+        int inputInteger = 0;
+        int total = 0;
+        int number = 0;
+
+        System.out.print("\n");
+
+        do {
+
+            System.out.print("Non-negative integer: ");
+            inputInteger = in.nextInt();
+            in.nextLine();
+
+            if (inputInteger >= 0) {
+                total += inputInteger;
+                number++;
+            }
+
+        } while (inputInteger >= 0);
+        int average = (int) total / number;
+
+        System.out.printf("\n%,.2f.\n", average);
     }
 
     /*
