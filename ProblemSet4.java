@@ -27,16 +27,16 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        // ps.sum();
-        // ps.reverse();
-        // ps.digits();
-        // ps.average();
-        // ps.prime();
-        // ps.fibonacci();
-        // ps.factors();
-        // ps.mario();
+        ps.sum();
+        ps.reverse();
+        ps.digits();
+        ps.average();
+        ps.prime();
+        ps.fibonacci();
+        ps.factors();
+        ps.mario();
         ps.luigi();
-        // ps.credit();
+        ps.credit();
 
         in.close();
     }
@@ -146,7 +146,7 @@ public class ProblemSet4 {
             }
         }
 
-        System.out.println("\n" + sum + ".");
+        System.out.println("\n" + sum + ".\n");
     }
 
     /*
@@ -157,30 +157,28 @@ public class ProblemSet4 {
      * What is the average of the values entered?
      */
 
-    public void average() {
+     public void average() {
 
-        int inputInteger = 0;
-        int total = 0;
-        int number = 0;
+         double inputInteger = 0;
+         double number = 0;
+         double total = 0;
 
-        System.out.print("\n");
+         do {
 
-        do {
+             System.out.print("Non-negative integer: ");
+             inputInteger = in.nextLong();
+             if (inputInteger > 0) {
 
-            System.out.print("Non-negative integer: ");
-            inputInteger = in.nextInt();
-            in.nextLine();
+                 total += inputInteger;
+                 number++;
+             }
 
-            if (inputInteger >= 0) {
-                total += inputInteger;
-                number++;
-            }
+         } while (inputInteger >= 0);
 
-        } while (inputInteger >= 0);
-        int average = (int) total / number;
+         double average = total / number;
 
-        System.out.printf("\n%,.2f.\n", average);
-    }
+         System.out.printf("\n%,.2f.\n", average);
+     }
 
     /*
      * Exercise 5.
@@ -211,7 +209,7 @@ public class ProblemSet4 {
              }
 
              String output = (prime) ? "Prime" : "Not prime";
-             System.out.printf("\n%s.\n", output);
+             System.out.printf("\n%s.\n\n", output);
   }
 
     /*
@@ -271,7 +269,7 @@ public class ProblemSet4 {
                 System.out.printf(", %d, %d", number, inputInteger / number);
             }
         }
-        System.out.print(".\n\n");
+        System.out.print(".\n");
     }
 
     /*
@@ -311,7 +309,7 @@ public class ProblemSet4 {
                       System.out.print("#");
                   }
               }
-              System.out.print("\n");
+              System.out.print("\n\n");
           }
 
     /*
@@ -361,7 +359,6 @@ public class ProblemSet4 {
             blocks = 0;
 
         }
-        System.out.print("\n");
     }
 
     /*
@@ -371,7 +368,79 @@ public class ProblemSet4 {
      * Luhn's algorithm, is the credit card number valid?
      */
 
-    public void credit() {
+     public void credit() {
 
-    }
-}
+          long cardPin = 0;
+
+          int sum1 = 0;
+          int sum2 = 0;
+
+          String cardBrand = "";
+
+          String cardString = "";
+          String sumString = "";
+
+          cardBrand = "Invalid";
+
+          System.out.print("\n");
+
+          do {
+
+              System.out.print("Number: ");
+              cardPin = in.nextLong();
+              cardString = Long.toString(cardPin);
+
+          } while (cardPin <= 0);
+
+          cardString = Long.toString(cardPin);
+          for (int num = cardString.length() - 2; num > -1; num -= 2) {
+
+              sumString += Integer.toString(2 * Integer.parseInt(cardString.substring(num, num + 1)));
+          }
+
+          for (int num = sumString.length() - 1; num >= 0; num --) {
+
+              sum1 += Integer.parseInt(sumString.substring(num, num + 1));
+          }
+
+          for (int num = cardString.length() - 1; num >= 0; num -= 2 ) {
+
+              sum2 += Integer.parseInt(cardString.substring(num, num + 1));
+          }
+
+          if (cardString.length() == 15 && (cardString.substring(0, 2).equals("37") || cardString.substring(0, 2).equals("34")) && ((sum1 + sum2) % 10 == 0)) {
+
+              cardBrand = "Amex";
+
+          } else if ((cardString.length() == 16 || cardString.length() == 13) && ((sum1 + sum2) % 10 == 0) && (cardString.substring(0, 1).equals("4"))) {
+
+              cardBrand = "Visa";
+
+          } else if (cardString.length() == 16 && ((sum1 + sum2) % 10 == 0)) {
+
+              switch (cardString.substring(0, 2)) {
+
+                  case "51":
+                      cardBrand = "Mastercard";
+                      break;
+
+                  case "52":
+                      cardBrand = "Mastercard";
+                      break;
+
+                  case "53":
+                      cardBrand = "Mastercard";
+                      break;
+
+                  case "54":
+                      cardBrand = "Mastercard";
+                      break;
+
+                  case "55":
+                      cardBrand = "Mastercard";
+                      break;
+              }
+          }
+          System.out.printf("\n%s.\n", cardBrand);
+      }
+  }
