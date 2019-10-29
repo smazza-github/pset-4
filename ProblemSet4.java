@@ -30,10 +30,10 @@ public class ProblemSet4 {
         // ps.sum();
         // ps.reverse();
         // ps.digits();
-        ps.average();
+        // ps.average();
         // ps.prime();
         // ps.fibonacci();
-        // ps.factors();
+        ps.factors();
         // ps.mario();
         // ps.luigi();
         // ps.credit();
@@ -89,6 +89,7 @@ public class ProblemSet4 {
       System.out.print("\n");
 
         do {
+
             System.out.print("Positive Integer: ");
             inputInteger = in.nextInt();
 
@@ -124,6 +125,7 @@ public class ProblemSet4 {
         System.out.print("\n");
 
         do {
+
             System.out.print("Positive integer: ");
             inputInteger = in.nextInt();
 
@@ -188,7 +190,29 @@ public class ProblemSet4 {
 
     public void prime() {
 
-    }
+             int inputInteger = 0;
+             boolean prime = true;
+
+             System.out.print("\n");
+
+             do {
+
+                 System.out.print("Non-negative integer: ");
+                 inputInteger = in.nextInt();
+
+             } while (inputInteger < 0);
+
+             for (int number = 2; number <= inputInteger / 2; ++number) {
+
+                 if (inputInteger % number == 0) {
+                     prime = false;
+                     break;
+                 }
+             }
+
+             String output = (prime) ? "Prime" : "Not prime";
+             System.out.printf("\n%s.\n", output);
+  }
 
     /*
      * Exercise 6.
@@ -199,7 +223,27 @@ public class ProblemSet4 {
 
     public void fibonacci() {
 
+        int inputInteger = 0;
+        int int1 = 0;
+        int int2 = 1;
+        int int3 = 1;
+
+        do {
+
+            System.out.print("Positive integer: ");
+            inputInteger = in.nextInt();
+
+        } while (inputInteger > 92 || inputInteger < 1);
+
+        for (int number = 1; number < inputInteger; number++) {
+            int3 = int1 + int2;
+            int1 = int2;
+            int2 = int3;
+        }
+
+        System.out.printf("\n%d.\n\n", int3);
     }
+
 
     /*
      * Exercise 7.
@@ -209,6 +253,25 @@ public class ProblemSet4 {
 
     public void factors() {
 
+      int inputInteger = 0;
+
+        do {
+
+            System.out.print("Positive integer: ");
+            inputInteger = in.nextInt();
+
+        } while (inputInteger < 1);
+
+        System.out.printf("\n1, %d", inputInteger);
+
+        for (int number = 2; number <= inputInteger / number; number++) {
+
+            if (inputInteger % number == 0) {
+
+                System.out.printf(", %d, %d", number, inputInteger / number);
+            }
+        }
+        System.out.print(".\n\n");
     }
 
     /*
