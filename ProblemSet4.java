@@ -33,9 +33,9 @@ public class ProblemSet4 {
         // ps.average();
         // ps.prime();
         // ps.fibonacci();
-        ps.factors();
+        // ps.factors();
         // ps.mario();
-        // ps.luigi();
+        ps.luigi();
         // ps.credit();
 
         in.close();
@@ -283,7 +283,36 @@ public class ProblemSet4 {
 
     public void mario() {
 
-    }
+              int height = 0;
+              int blocks = 0;
+              int spaces = 0;
+
+              System.out.print("\n");
+
+              do {
+
+                  System.out.print("Height: ");
+                  height = in.nextInt();
+
+              } while (height >= 25 || height <= 0);
+
+              for (int num = 0; num < height; num++) {
+
+                  System.out.println();
+
+                  spaces = height - num - 1;
+                  for (int num2 = 0; num2 < spaces; num2 ++) {
+                      System.out.print(" ");
+
+                  }
+
+                  blocks = num + 2;
+                  for (int num2 = 0; num2 < blocks; num2++) {
+                      System.out.print("#");
+                  }
+              }
+              System.out.print("\n");
+          }
 
     /*
      * Exercise 9.
@@ -294,6 +323,45 @@ public class ProblemSet4 {
 
     public void luigi() {
 
+        int height = 0;
+        int blocks = 0;
+        int spaces = 0;
+
+        do {
+
+            System.out.print("Height: ");
+            height = in.nextInt();
+
+        } while (height > 24 || height < 1);
+
+        System.out.print("\n");
+
+        for (int num = 1; num <= height; num++) {
+
+            for (int num2 = height - num; num2 > 0; num2--) {
+                System.out.print(" ");
+
+                spaces++;
+            }
+
+            for (int num3 = height + 1 - spaces; num3 > 0; num3--) {
+                System.out.print("#");
+
+                blocks++;
+            }
+
+            System.out.print("  ");
+
+            for (int num4 = 0; num4 < blocks; num4++) {
+                System.out.print("#");
+            }
+
+            System.out.print("\n");
+            spaces = 0;
+            blocks = 0;
+
+        }
+        System.out.print("\n");
     }
 
     /*
